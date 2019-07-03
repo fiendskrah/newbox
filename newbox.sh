@@ -81,6 +81,16 @@ git clone https://github.com/pinguim06/pdf-tools-org
 git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git ~/.fonts/adobe-fonts/source-code-pro
 fc-cache -f -v ~/.fonts/adobe-fonts/source-code-pro
 
+# layers
+mkdir ~/.spacemacs.d/layers
+
+# tern
+sudo apt install nodejs
+sudo apt install npm
+sudo npm install -g tern
+
+
+
 
 #########
 # LaTeX #
