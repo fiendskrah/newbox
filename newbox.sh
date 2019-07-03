@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 
-########################################################################
-################################ basics ################################
-########################################################################
+###############
+# basic tools #
+###############
 
 sudo apt-get install -y tmux ranger wmctrl mosh git htop
 sudo apt-get install -y gnome-tweaks clipit
@@ -16,9 +16,9 @@ ssh -T git@github.com
 git clone git@github.com:sjsrey/dotfiles.git
 
 
-########################################################################
-############################### anaconda ###############################
-########################################################################
+############
+# anaconda #
+############
 
 sudo apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 curl
 cd /tmp
@@ -28,9 +28,9 @@ bash Anaconda3-2019.03-Linux-x86_64.sh
 # will have to restart a shell to have anaconda path set in environment
 
 
-########################################################################
-################################# vim ##################################
-########################################################################
+#######
+# vim #
+#######
 
 # this assumes pip is from anaconda
 sudo apt-get install -y powerline
@@ -48,9 +48,9 @@ ln -s ~/.vim/vimrc ~/.vimrc
 # :q
 
 
-########################################################################
-################################ emacs #################################
-########################################################################
+#########
+# emacs #
+#########
 
 sudo apt-get install -y emacs25
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
@@ -82,16 +82,16 @@ git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-
 fc-cache -f -v ~/.fonts/adobe-fonts/source-code-pro
 
 
-########################################################################
-################################ LaTeX #################################
-########################################################################
+#########
+# LaTeX #
+#########
 
 sudo apt-get install -y texlive-full
 
 
-########################################################################
-################################# QGIS #################################
-########################################################################
+########
+# QGIS #
+########
 
 sudo apt-get install -y qgis
 
@@ -99,3 +99,35 @@ sudo apt-get install -y qgis
 ################
 # org-protocol #
 ################
+
+# https://orgmode.org/worg/org-contrib/org-protocol.html
+# https://github.com/sprig/org-capture-extension
+
+sudo apt install gconf2
+gconftool-2 -s /desktop/gnome/url-handlers/org-protocol/command '/usr/local/bin/emacsclient %s' --type String
+gconftool-2 -s /desktop/gnome/url-handlers/org-protocol/enabled --type Boolean true
+cat > "${HOME}/.local/share/applications/org-protocol.desktop" << EOF
+[Desktop Entry]
+Name=org-protocol
+Exec=emacsclient %u
+Type=Application
+Terminal=false
+Categories=System;
+MimeType=x-scheme-handler/org-protocol;
+EOF
+
+update-desktop-database ~/.local/share/applications/
+
+
+############
+# dropobox #
+############
+
+# https://help.dropbox.com/installs-integrations/sync-uploads/move-to-new-computer
+
+# mkdir ~/tmp
+# mv files over via usb or network to ~/tmp/
+# start dropbox
+# kill dropbox
+# move files from ~/tmp/* to ~/Dropbox/.
+# restart dropbox
