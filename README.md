@@ -6,5 +6,7 @@ Most of this is automatic, with the following exceptions:
 
 
  - user will be prompted at points
- - the dropbox install needs some intervention
+ - vim plugins have to be manually instantiated (see instructions)
+ - emacs: have to add a sed call to fully automate (see instructions)
+ - the dropbox install needs some intervention (see instructions)
 

@@ -131,3 +131,16 @@ update-desktop-database ~/.local/share/applications/
 # kill dropbox
 # move files from ~/tmp/* to ~/Dropbox/.
 # restart dropbox
+
+
+#######
+# zsh #
+#######
+
+# https://www.chenhuijing.com/blog/bash-to-zsh/
+
+sudo apt-get install -y zsh
+zsh
+
+# then run ./zconfig.sh from within zsh
+
