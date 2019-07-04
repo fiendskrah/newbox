@@ -1,12 +1,15 @@
 # Setting up a new ubuntu box 
 
-This script will install the basic tools I use on a fresh Ubuntu install. It was developed using 19.04.
+## Steps
 
-Most of this is automatic, with the following exceptions:
-
-
- - user will be prompted at points
- - vim plugins have to be manually instantiated (see instructions)
- - emacs: have to add a sed call to fully automate (see instructions)
- - the dropbox install needs some intervention (see instructions)
-
+  1. `mkdir ~/opt`
+  2. `git clone git@github.com:sjsrey/newbox.git ~/opt/newbox`
+  1. `make basic`
+  1.  Add ~/.ssh/id_rsa.pub to github keys 
+  1. `make dotfiles; make anaconda; make vim`
+  2. `vim;:PluginInstall:q`
+  2. `make emacs` 
+  2. `make zsh`
+  2. `zsh;/home/serge/opt/newbox/zconfig.sh`
+  2. `make org; make qgis; make latex`
+  3. profit
