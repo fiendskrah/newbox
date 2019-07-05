@@ -6,7 +6,7 @@
   1. Download  from https://github.com/sjsrey/newbox 
   1. `mv ~/Downloads/newbox-master.zip ~/opt/`
   1. `cd ~/opt;unzip newbox-master.zip; mv newbox-master newbox`
-     `cd newbox`
+  1. `cd newbox`
   1. `make basic`
   1.  Add ~/.ssh/id_rsa.pub to github keys 
   1. `make dotfiles; make anaconda`
