@@ -66,3 +66,16 @@ qgis:
 .PHONY: latex
 latex:
 	sudo apt-get install -y texlive-full
+
+.PHONY: i3
+i3:
+	sudo apt-get install -y i3
+	wget https://github.com/erebe/greenclip/releases/download/3.2/greenclip
+	rm -rf /home/serge/bin
+	mkdir /home/serge/bin
+	mv greenclip /home/serge/bin/.
+	chmod +x /home/serge/bin/greenclip
+	pip install py3status
+
+
+
