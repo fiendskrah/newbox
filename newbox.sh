@@ -91,7 +91,6 @@ sudo npm install -g tern
 
 
 
-
 #########
 # LaTeX #
 #########
@@ -153,4 +152,24 @@ sudo apt-get install -y zsh
 zsh
 
 # then run ./zconfig.sh from within zsh
+
+######
+# i3 #
+######
+
+git clone git@github.com:sjsrey/i3.git ~/.config/i3
+git clone git@github.com:sjsrey/i3status.git ~/.config/i3status
+sudo apt-get install feh compton i3 rofi
+pip install py3status
+sudo apt-get install xautolock
+
+######
+# st #
+######
+sudo apt-get install libxft-dev libxft2
+git clone git@github.com:sjsrey/st.git ~/opt/st
+cd ~/opt/st
+make
+sudo make install
+
 
