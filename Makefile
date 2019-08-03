@@ -76,6 +76,21 @@ i3:
 	mv greenclip /home/serge/bin/.
 	chmod +x /home/serge/bin/greenclip
 	pip install py3status
+	sudo apt-get install xautolock
+	git clone git@github.com:sjsrey/wallpapers.git ~/.wallpaper
+
+.PHONY: wallpaper
+wallpaper:
+	( crontab -l ; echo "*/5 * * * * DISPLAY=\":0.0\" feh --randomize --bg-fill /home/serge/.wallpaper"  ) |  crontab -
+
+.PHONY: st
+st:
+	sudo apt-get install libxft-dev libxft2
+	git clone git@github.com:sjsrey/st.git ~/opt/st
+	cd ~/opt/st
+	make
+	sudo make install
+
 
 
 

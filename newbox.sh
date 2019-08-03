@@ -162,6 +162,9 @@ git clone git@github.com:sjsrey/i3status.git ~/.config/i3status
 sudo apt-get install feh compton i3 rofi
 pip install py3status
 sudo apt-get install xautolock
+git clone git@github.com:sjsrey/wallpapers.git ~/.wallpaper
+
+
 
 ######
 # st #
