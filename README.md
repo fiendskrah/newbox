@@ -16,5 +16,6 @@
   2. `make emacs` 
   2. `make zsh`
   2. `zsh;/home/serge/opt/newbox/zconfig.sh`
-  2. `make org; make qgis; make latex`
+  2. `make org; make qgis; make latex; make i3; make wallpaper; make st; make docker`
+  2. `sudo shutdown -r now`
   3. Profit

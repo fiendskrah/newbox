@@ -17,9 +17,7 @@ dotfiles:
 .PHONY: anaconda
 anaconda:
 	sudo apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 curl
-	cd /tmp
-	curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
-	bash Anaconda3-2019.03-Linux-x86_64.sh
+	cd /tmp; curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh; bash Anaconda3-2019.03-Linux-x86_64.sh
 
 
 
@@ -27,7 +25,7 @@ anaconda:
 vim:
 	sudo apt-get install -y powerline
 	pip install powerline-status
-	git clone https://github.com/powerline/fonts.git ~/fonts 
+	git clone https://github.com/powerline/fonts.git ~/fonts
 	sudo ~/fonts/install.sh
 	git clone git@github.com:sjsrey/vimfiles.git ~/.vim
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -87,9 +85,14 @@ wallpaper:
 st:
 	sudo apt-get install libxft-dev libxft2
 	git clone git@github.com:sjsrey/st.git ~/opt/st
-	cd ~/opt/st
-	make
-	sudo make install
+	cd ~/opt/st; make; sudo make install
+
+.PHONY: docker
+docker:
+	sudo apt install docker.io
+	sudo usermod -aG docker serge
+	echo 'Log out and back in to have docker group added to user.'
+
 
 
 
