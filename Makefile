@@ -4,7 +4,6 @@ basic:
 	sudo apt-get install -y chrome-gnome-shell
 	sudo apt-get install -y vim-gtk
 	ssh-keygen -t rsa
-	# push keys up to github then continue
 	echo "push key up to github then continue"
 	ssh -T git@github.com
 
@@ -13,13 +12,10 @@ dotfiles:
 	git clone git@github.com:sjsrey/dotfiles.git ~/opt/dotfiles
 	ln -s ~/opt/dotfiles/tmux.conf ~/.tmux.conf
 
-
 .PHONY: anaconda
 anaconda:
 	sudo apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 curl
 	cd /tmp; curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh; bash Anaconda3-2019.03-Linux-x86_64.sh
-
-
 
 .PHONY: vim
 vim:
@@ -30,7 +26,6 @@ vim:
 	git clone git@github.com:sjsrey/vimfiles.git ~/.vim
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 	ln -s ~/.vim/vimrc ~/.vimrc
-
 
 .PHONY: emacs
 emacs:
@@ -76,6 +71,9 @@ i3:
 	pip install py3status
 	sudo apt-get install xautolock
 	git clone git@github.com:sjsrey/wallpapers.git ~/.wallpaper
+	sudo apt-get install scrot
+	mkdir /home/serge/Pictures/Screenshots
+
 
 .PHONY: wallpaper
 wallpaper:
