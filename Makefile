@@ -29,7 +29,9 @@ vim:
 
 .PHONY: emacs
 emacs:
-	sudo apt-get install -y emacs25
+	sudo add-apt-repository ppa:kelleyk/emacs
+	sudo apt update
+	sudo apt install emacs26
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 	git clone git@github.com:sjsrey/spacemacs.d.git ~/.spacemacs.d
 	mkdir ~/packages
