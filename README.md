@@ -19,3 +19,6 @@
   2. `make org; make qgis; make latex; make i3; make wallpaper; make st; make docker`
   2. `sudo shutdown -r now`
   3. Profit
+
+
+ fix - qgis, docker for external repos
