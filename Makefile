@@ -15,7 +15,7 @@ dotfiles:
 .PHONY: anaconda
 anaconda:
 	sudo apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 curl
-	cd /tmp; curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh; bash Anaconda3-2019.03-Linux-x86_64.sh
+	cd /tmp; curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh; bash Anaconda3-2020.07-Linux-x86_64.sh
 
 .PHONY: vim
 vim:
@@ -29,9 +29,7 @@ vim:
 
 .PHONY: emacs
 emacs:
-	sudo add-apt-repository ppa:kelleyk/emacs
-	sudo apt update
-	sudo apt install emacs26
+	sudo apt install emacs
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 	git clone git@github.com:sjsrey/spacemacs.d.git ~/.spacemacs.d
 	mkdir ~/packages
