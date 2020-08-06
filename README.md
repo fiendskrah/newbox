@@ -20,5 +20,3 @@
   2. `sudo shutdown -r now`
   3. Profit
 
-
- fix - qgis, docker for external repos
