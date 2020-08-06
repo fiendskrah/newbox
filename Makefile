@@ -54,7 +54,11 @@ org:
 
 .PHONY: qgis
 qgis:
-	sudo apt-get install -y qgis
+	sudo apt-get install gnupg software-properties-common
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51F523511C7028C3
+	sudo add-apt-repository "deb     https://qgis.org/ubuntu `lsb_release -c -s` main"
+	sudo apt-get update
+	sudo apt-get install -y qgis qgis-plugin-grass
 
 .PHONY: latex
 latex:
@@ -87,7 +91,13 @@ st:
 
 .PHONY: docker
 docker:
-	sudo apt install docker.io
+	sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+	sudo apt update
+	apt-cache policy docker-ce
+	sudo apt install docker-ce
+	sudo systemctl status docker
 	sudo usermod -aG docker serge
 	echo 'Log out and back in to have docker group added to user.'
 
