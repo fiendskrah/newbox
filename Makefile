@@ -77,6 +77,8 @@ i3:
 	git clone git@github.com:sjsrey/wallpapers.git ~/.wallpaper
 	sudo apt-get install scrot
 	mkdir /home/serge/Pictures/Screenshots
+	git clone git@github.com:sjsrey/i3status.git ~/.config/i3status
+	git clone git@github.com:sjsrey/i3.git ~/.config/i3
 
 
 .PHONY: wallpaper
