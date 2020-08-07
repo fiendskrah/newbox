@@ -36,6 +36,7 @@ emacs:
 	git clone https://github.com/gromnitsky/wordnut.git ~/packages/wordnut
 	sudo apt-get install -y wordnet
 	git clone https://github.com/pinguim06/pdf-tools-org ~/packages/pdf-tools-org
+  git clone git@github.com:EFLS/zetteldeft.git ~/packages/zetteldeft
 	git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git ~/.fonts/adobe-fonts/source-code-pro
 	fc-cache -f -v ~/.fonts/adobe-fonts/source-code-pro
 	mkdir ~/.spacemacs.d/layers
