@@ -1,3 +1,75 @@
+debian_1:
+	sudo apt-get install -y tmux ranger wmctrl mosh git htop
+	sudo apt-get install -y gnome-tweaks clipit
+	sudo apt-get install -y chrome-gnome-shell
+	sudo apt-get install -y vim-gtk
+	git clone git@github.com:sjsrey/dotfiles.git ~/opt/dotfiles
+	ln -s ~/opt/dotfiles/tmux.conf ~/.tmux.conf
+	sudo apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6 curl
+	cd /tmp; curl -O https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh; bash Anaconda3-2020.07-Linux-x86_64.sh
+	echo "Start a new terminal and continue on with make debian_2"
+
+debian_2:
+	sudo apt-get install -y powerline
+	pip install powerline-status
+	git clone https://github.com/powerline/fonts.git ~/fonts
+	sudo ~/fonts/install.sh
+	git clone git@github.com:sjsrey/vimfiles.git ~/.vim
+	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	ln -s ~/.vim/vimrc ~/.vimrc
+	echo "After vim starts, issue :PluginInstall:q"
+	vim
+	echo "Move on to debian_3"
+
+debian_3:
+	sudo apt-get install -y zsh
+	echo "run: zsh and then do ~/opt/newbos/zconfig.sh" 
+
+debian_4:
+	sudo apt-get install -y wget gnupg software-properties-common
+	wget -O - https://qgis.org/downloads/qgis-2020.gpg.key | gpg --import
+	gpg --export --armor F7E06F06199EF2F2 | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/qgis-archive.gpg --import
+	sudo chmod a+r /etc/apt/trusted.gpg.d/qgis-archive.gpg
+	sudo add-apt-repository "deb     https://qgis.org/debian `lsb_release -c -s` main"
+	sudo apt-get update
+	sudo apt-get install -y qgis qgis-plugin-grass
+	sudo apt-get install -y texlive-full
+	sudo apt-get install -y i3 wget
+	wget https://github.com/erebe/greenclip/releases/download/3.2/greenclip
+	rm -rf /home/serge/bin
+	mkdir /home/serge/bin
+	mv greenclip /home/serge/bin/.
+	chmod +x /home/serge/bin/greenclip
+	pip install py3status
+	sudo apt-get install -y xautolock rofi
+	git clone git@github.com:sjsrey/wallpapers.git ~/.wallpaper
+	sudo apt-get install -y scrot
+	mkdir /home/serge/Pictures/Screenshots
+	git clone git@github.com:sjsrey/i3status.git ~/.config/i3status
+	git clone git@github.com:sjsrey/i3.git ~/.config/i3
+	( crontab -l ; echo "*/5 * * * * DISPLAY=\":0.0\" feh --randomize --bg-fill /home/serge/.wallpaper"  ) |  crontab -
+	sudo apt-get install -y libxft-dev libxft2
+	git clone git@github.com:sjsrey/st.git ~/opt/st
+	cd ~/opt/st; make; sudo make install
+	sudo apt-get update
+	sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+	curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
+	sudo apt update
+	sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+	echo 'Log out and back in to have docker group added to user.'
+
+
+
+
+
+
+
+
+
+
+
+
 basic:
 	sudo apt-get install -y tmux ranger wmctrl mosh git htop
 	sudo apt-get install -y gnome-tweaks clipit
