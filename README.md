@@ -1,4 +1,4 @@
-# Setting up a new ubuntu box 
+# Setting up a new debian or ubuntu box 
 
 ## Steps
 
