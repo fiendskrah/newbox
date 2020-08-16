@@ -36,7 +36,7 @@ emacs:
 	git clone https://github.com/gromnitsky/wordnut.git ~/packages/wordnut
 	sudo apt-get install -y wordnet
 	git clone https://github.com/pinguim06/pdf-tools-org ~/packages/pdf-tools-org
-  git clone git@github.com:EFLS/zetteldeft.git ~/packages/zetteldeft
+	git clone git@github.com:EFLS/zetteldeft.git ~/packages/zetteldeft
 	git clone --depth 1 --branch release https://github.com/adobe-fonts/source-code-pro.git ~/.fonts/adobe-fonts/source-code-pro
 	fc-cache -f -v ~/.fonts/adobe-fonts/source-code-pro
 	mkdir ~/.spacemacs.d/layers
@@ -53,13 +53,24 @@ zsh:
 org:
 	/home/serge/opt/newbox/org.sh
 
-.PHONY: qgis
-qgis:
+.PHONY: qgis-ubuntu
+qgis-ubuntu:
 	sudo apt-get install gnupg software-properties-common
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51F523511C7028C3
 	sudo add-apt-repository "deb     https://qgis.org/ubuntu `lsb_release -c -s` main"
 	sudo apt-get update
 	sudo apt-get install -y qgis qgis-plugin-grass
+
+.PHONY: qgis-debian
+qgis-debian:
+	sudo apt-get install wget gnupg software-properties-common
+	wget -O - https://qgis.org/downloads/qgis-2020.gpg.key | gpg --import
+	gpg --export --armor F7E06F06199EF2F2 | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/qgis-archive.gpg --import
+	sudo chmod a+r /etc/apt/trusted.gpg.d/qgis-archive.gpg
+	sudo add-apt-repository "deb     https://qgis.org/debian `lsb_release -c -s` main"
+	sudo apt-get update
+	sudo apt-get install -y qgis qgis-plugin-grass
+
 
 .PHONY: latex
 latex:
@@ -92,8 +103,8 @@ st:
 	git clone git@github.com:sjsrey/st.git ~/opt/st
 	cd ~/opt/st; make; sudo make install
 
-.PHONY: docker
-docker:
+.PHONY: docker-ubuntu
+docker-ubuntu:
 	sudo apt install apt-transport-https ca-certificates curl software-properties-common
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
@@ -102,6 +113,17 @@ docker:
 	sudo apt install docker-ce
 	sudo systemctl status docker
 	sudo usermod -aG docker serge
+	echo 'Log out and back in to have docker group added to user.'
+
+
+.PHONY: docker-debian
+docker-debian:
+	sudo apt-get update
+	sudo apt install apt-transport-https ca-certificates curl software-properties-common
+	curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
+	sudo apt update
+	sudo apt-get install docker-ce docker-ce-cli containerd.io
 	echo 'Log out and back in to have docker group added to user.'
 
 

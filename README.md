@@ -16,7 +16,9 @@
   2. `make emacs` 
   2. `make zsh`
   2. `zsh;/home/serge/opt/newbox/zconfig.sh`
-  2. `make org; make qgis; make latex; make i3; make wallpaper; make st; make docker`
+  2. `make org;  make latex; make i3; make wallpaper; make st`
+  # in the next two commands, specifiy either debian or ubuntu
+  1. `make docker-[debian|ubuntu]; make qgis-[debian|ubuntu]`
   2. `sudo shutdown -r now`
   3. Profit
 
