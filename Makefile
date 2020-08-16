@@ -29,7 +29,7 @@ vim:
 
 .PHONY: emacs
 emacs:
-	sudo apt install emacs
+	sudo apt install -y emacs
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 	git clone git@github.com:sjsrey/spacemacs.d.git ~/.spacemacs.d
 	mkdir ~/packages
@@ -55,7 +55,6 @@ org:
 
 .PHONY: qgis-ubuntu
 qgis-ubuntu:
-	sudo apt-get install gnupg software-properties-common
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51F523511C7028C3
 	sudo add-apt-repository "deb     https://qgis.org/ubuntu `lsb_release -c -s` main"
 	sudo apt-get update
@@ -63,7 +62,7 @@ qgis-ubuntu:
 
 .PHONY: qgis-debian
 qgis-debian:
-	sudo apt-get install wget gnupg software-properties-common
+	sudo apt-get install -y wget gnupg software-properties-common
 	wget -O - https://qgis.org/downloads/qgis-2020.gpg.key | gpg --import
 	gpg --export --armor F7E06F06199EF2F2 | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/qgis-archive.gpg --import
 	sudo chmod a+r /etc/apt/trusted.gpg.d/qgis-archive.gpg
@@ -78,16 +77,16 @@ latex:
 
 .PHONY: i3
 i3:
-	sudo apt-get install -y i3
+	sudo apt-get install -y i3 wget
 	wget https://github.com/erebe/greenclip/releases/download/3.2/greenclip
 	rm -rf /home/serge/bin
 	mkdir /home/serge/bin
 	mv greenclip /home/serge/bin/.
 	chmod +x /home/serge/bin/greenclip
 	pip install py3status
-	sudo apt-get install xautolock
+	sudo apt-get install -y xautolock rofi
 	git clone git@github.com:sjsrey/wallpapers.git ~/.wallpaper
-	sudo apt-get install scrot
+	sudo apt-get install -y scrot
 	mkdir /home/serge/Pictures/Screenshots
 	git clone git@github.com:sjsrey/i3status.git ~/.config/i3status
 	git clone git@github.com:sjsrey/i3.git ~/.config/i3
@@ -99,18 +98,18 @@ wallpaper:
 
 .PHONY: st
 st:
-	sudo apt-get install libxft-dev libxft2
+	sudo apt-get install -y libxft-dev libxft2
 	git clone git@github.com:sjsrey/st.git ~/opt/st
 	cd ~/opt/st; make; sudo make install
 
 .PHONY: docker-ubuntu
 docker-ubuntu:
-	sudo apt install apt-transport-https ca-certificates curl software-properties-common
+	sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 	sudo apt update
 	apt-cache policy docker-ce
-	sudo apt install docker-ce
+	sudo apt install -y docker-ce
 	sudo systemctl status docker
 	sudo usermod -aG docker serge
 	echo 'Log out and back in to have docker group added to user.'
@@ -119,11 +118,11 @@ docker-ubuntu:
 .PHONY: docker-debian
 docker-debian:
 	sudo apt-get update
-	sudo apt install apt-transport-https ca-certificates curl software-properties-common
+	sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 	curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
 	sudo apt update
-	sudo apt-get install docker-ce docker-ce-cli containerd.io
+	sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 	echo 'Log out and back in to have docker group added to user.'
 
 
