@@ -17,10 +17,10 @@ There are two flavors supported: Debian and Ubuntu.
 
 ### Debian
 
-1. make debian_1
-1. make debian_2
-1. make debian_3
-1. make debian_4
+1. `make debian_1`
+1. `make debian_2`
+1. `make debian_3`
+1. `make debian_4`
 1. `sudo shutdown -r`
 
 
@@ -29,7 +29,6 @@ There are two flavors supported: Debian and Ubuntu.
 ### Ubuntu
 
   1. `make basic`
-  1.  Add ~/.ssh/id_rsa.pub to github keys 
   1. `make dotfiles; make anaconda`
   1.  restart a terminal to have anaconda paths set
   1. `make vim`
